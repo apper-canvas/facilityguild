@@ -1,0 +1,110 @@
+[
+  {
+    "Id": 1,
+    "name": "Executive Conference Room",
+    "floor": 1,
+    "capacity": 20,
+    "currentOccupancy": 15,
+    "type": "Conference Room",
+    "amenities": ["Projector", "Video Conferencing", "Whiteboard", "Coffee Station"]
+  },
+  {
+    "Id": 2,
+    "name": "IT Department",
+    "floor": 1,
+    "capacity": 50,
+    "currentOccupancy": 42,
+    "type": "Office",
+    "amenities": ["High-Speed Internet", "Server Room Access", "Tech Support"]
+  },
+  {
+    "Id": 3,
+    "name": "Marketing Office",
+    "floor": 2,
+    "capacity": 30,
+    "currentOccupancy": 25,
+    "type": "Office",
+    "amenities": ["Creative Studio", "Printing Station", "Meeting Pods"]
+  },
+  {
+    "Id": 4,
+    "name": "Conference Room B-205",
+    "floor": 2,
+    "capacity": 12,
+    "currentOccupancy": 8,
+    "type": "Conference Room",
+    "amenities": ["Smart TV", "Wireless Presentation", "Phone Conference"]
+  },
+  {
+    "Id": 5,
+    "name": "Main Cafeteria",
+    "floor": 1,
+    "capacity": 100,
+    "currentOccupancy": 45,
+    "type": "Kitchen",
+    "amenities": ["Food Service", "Seating Area", "Vending Machines", "Microwave"]
+  },
+  {
+    "Id": 6,
+    "name": "Restroom A",
+    "floor": 1,
+    "capacity": 10,
+    "currentOccupancy": 3,
+    "type": "Restroom",
+    "amenities": ["Accessible", "Baby Changing Station"]
+  },
+  {
+    "Id": 7,
+    "name": "Storage Room 3A",
+    "floor": 3,
+    "capacity": 0,
+    "currentOccupancy": 0,
+    "type": "Storage",
+    "amenities": ["Climate Controlled", "Security Access"]
+  },
+  {
+    "Id": 8,
+    "name": "Human Resources",
+    "floor": 2,
+    "capacity": 15,
+    "currentOccupancy": 12,
+    "type": "Office",
+    "amenities": ["Private Offices", "Interview Rooms", "Document Storage"]
+  },
+  {
+    "Id": 9,
+    "name": "Training Room Alpha",
+    "floor": 3,
+    "capacity": 25,
+    "currentOccupancy": 20,
+    "type": "Conference Room",
+    "amenities": ["Training Equipment", "Flip Charts", "Audio System"]
+  },
+  {
+    "Id": 10,
+    "name": "Finance Department",
+    "floor": 3,
+    "capacity": 20,
+    "currentOccupancy": 18,
+    "type": "Office",
+    "amenities": ["Secure File Storage", "Accounting Software", "Private Workstations"]
+  },
+  {
+    "Id": 11,
+    "name": "Break Room B",
+    "floor": 2,
+    "capacity": 15,
+    "currentOccupancy": 6,
+    "type": "Kitchen",
+    "amenities": ["Coffee Machine", "Refrigerator", "Microwave", "Seating"]
+  },
+  {
+    "Id": 12,
+    "name": "Reception Area",
+    "floor": 1,
+    "capacity": 20,
+    "currentOccupancy": 8,
+    "type": "Office",
+    "amenities": ["Reception Desk", "Visitor Seating", "Information Display"]
+  }
+]

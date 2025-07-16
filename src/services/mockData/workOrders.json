@@ -1,0 +1,98 @@
+[
+  {
+    "Id": 1,
+    "title": "HVAC System Maintenance",
+    "description": "Routine maintenance check for the HVAC system in the main building. Includes filter replacement, cleaning, and system inspection.",
+    "location": "Main Building - Floor 3",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": "John Smith",
+    "createdDate": "2024-01-15T09:00:00Z",
+    "dueDate": "2024-01-20T17:00:00Z",
+    "photos": ["hvac-1.jpg", "hvac-2.jpg"]
+  },
+  {
+    "Id": 2,
+    "title": "Broken Window Repair",
+    "description": "Replace broken window in conference room B-205. Glass is cracked and needs immediate attention for safety reasons.",
+    "location": "Building B - Floor 2",
+    "priority": "Medium",
+    "status": "New",
+    "assignee": "Mike Johnson",
+    "createdDate": "2024-01-14T14:30:00Z",
+    "dueDate": "2024-01-18T16:00:00Z",
+    "photos": ["window-broken.jpg"]
+  },
+  {
+    "Id": 3,
+    "title": "Elevator Inspection",
+    "description": "Monthly safety inspection of elevator in the south tower. Check all safety mechanisms and mechanical components.",
+    "location": "South Tower - All Floors",
+    "priority": "High",
+    "status": "Completed",
+    "assignee": "Sarah Davis",
+    "createdDate": "2024-01-10T08:00:00Z",
+    "dueDate": "2024-01-15T17:00:00Z",
+    "photos": ["elevator-inspection.jpg"]
+  },
+  {
+    "Id": 4,
+    "title": "Plumbing Leak Fix",
+    "description": "Water leak detected in the restroom on the 4th floor. Requires immediate attention to prevent water damage.",
+    "location": "Main Building - Floor 4",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": "Robert Wilson",
+    "createdDate": "2024-01-16T11:15:00Z",
+    "dueDate": "2024-01-17T15:00:00Z",
+    "photos": ["plumbing-leak.jpg"]
+  },
+  {
+    "Id": 5,
+    "title": "Light Fixture Replacement",
+    "description": "Replace fluorescent light fixtures in the IT department with LED alternatives for better energy efficiency.",
+    "location": "Building A - Floor 1",
+    "priority": "Low",
+    "status": "New",
+    "assignee": "Lisa Anderson",
+    "createdDate": "2024-01-12T10:45:00Z",
+    "dueDate": "2024-01-25T17:00:00Z",
+    "photos": []
+  },
+  {
+    "Id": 6,
+    "title": "Carpet Cleaning",
+    "description": "Deep cleaning of carpets in the executive conference room. Schedule for after business hours.",
+    "location": "Executive Floor - Conference Room",
+    "priority": "Medium",
+    "status": "On Hold",
+    "assignee": "Tom Brown",
+    "createdDate": "2024-01-13T16:20:00Z",
+    "dueDate": "2024-01-22T20:00:00Z",
+    "photos": ["carpet-stain.jpg"]
+  },
+  {
+    "Id": 7,
+    "title": "Fire Safety System Test",
+    "description": "Quarterly fire safety system test including smoke detectors, sprinklers, and emergency lighting.",
+    "location": "All Buildings",
+    "priority": "High",
+    "status": "New",
+    "assignee": "Emily Clark",
+    "createdDate": "2024-01-17T07:30:00Z",
+    "dueDate": "2024-01-24T17:00:00Z",
+    "photos": []
+  },
+  {
+    "Id": 8,
+    "title": "Parking Lot Maintenance",
+    "description": "Repair potholes and repaint parking space lines in the main parking lot.",
+    "location": "Main Parking Lot",
+    "priority": "Medium",
+    "status": "Completed",
+    "assignee": "David Martinez",
+    "createdDate": "2024-01-08T13:00:00Z",
+    "dueDate": "2024-01-12T17:00:00Z",
+    "photos": ["parking-lot-before.jpg", "parking-lot-after.jpg"]
+  }
+]

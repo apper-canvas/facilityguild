@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import AssetFormModal from "@/components/molecules/AssetFormModal";
+import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Assets from "@/components/pages/Assets";
 import AssetRow from "@/components/molecules/AssetRow";
 import SearchBar from "@/components/molecules/SearchBar";
 import Button from "@/components/atoms/Button";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
-import ApperIcon from "@/components/ApperIcon";
 import { assetService } from "@/services/api/assetService";
 
 const AssetTable = () => {
@@ -15,6 +18,8 @@ const AssetTable = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const loadAssets = async () => {
     try {
@@ -59,8 +64,31 @@ const AssetTable = () => {
     console.log("Delete asset:", asset);
   };
 
-  const handleCreateNew = () => {
-    console.log("Create new asset");
+const handleCreateNew = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCreateSubmit = async (formData) => {
+    try {
+      setIsSubmitting(true);
+      const result = await assetService.create(formData);
+      
+      if (result) {
+        toast.success("Asset created successfully");
+        setIsModalOpen(false);
+        // Refresh the assets list
+        await loadAssets();
+      }
+    } catch (error) {
+      console.error("Error creating asset:", error);
+      toast.error("Failed to create asset");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (loading) {
@@ -142,11 +170,15 @@ const AssetTable = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+</div>
         </motion.div>
       )}
+      <AssetFormModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSubmit={handleCreateSubmit}
+        loading={isSubmitting}
+      />
     </div>
   );
 };
-
-export default AssetTable;

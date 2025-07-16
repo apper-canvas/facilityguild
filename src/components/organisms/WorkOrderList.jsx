@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import WorkOrderCard from "@/components/molecules/WorkOrderCard";
-import SearchBar from "@/components/molecules/SearchBar";
-import StatusFilter from "@/components/molecules/StatusFilter";
-import Button from "@/components/atoms/Button";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
+import WorkOrderFormModal from "@/components/molecules/WorkOrderFormModal";
+import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import WorkOrderCard from "@/components/molecules/WorkOrderCard";
+import StatusFilter from "@/components/molecules/StatusFilter";
+import SearchBar from "@/components/molecules/SearchBar";
+import Button from "@/components/atoms/Button";
 import { workOrderService } from "@/services/api/workOrderService";
 
 const WorkOrderList = () => {
@@ -17,7 +19,8 @@ const WorkOrderList = () => {
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const statusOptions = [
     { value: "New", label: "New" },
     { value: "In Progress", label: "In Progress" },
@@ -73,8 +76,31 @@ const WorkOrderList = () => {
     console.log("Delete work order:", workOrder);
   };
 
-  const handleCreateNew = () => {
-    console.log("Create new work order");
+const handleCreateNew = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCreateSubmit = async (formData) => {
+    try {
+      setIsSubmitting(true);
+      const result = await workOrderService.create(formData);
+      
+      if (result) {
+        toast.success("Work order created successfully");
+        setIsModalOpen(false);
+        // Refresh the work orders list
+        await loadWorkOrders();
+      }
+    } catch (error) {
+      console.error("Error creating work order:", error);
+      toast.error("Failed to create work order");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (loading) {
@@ -141,11 +167,17 @@ const WorkOrderList = () => {
                 onDelete={handleDelete}
               />
             </motion.div>
-          ))}
+))}
         </motion.div>
       )}
+
+      <WorkOrderFormModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSubmit={handleCreateSubmit}
+        loading={isSubmitting}
+      />
     </div>
   );
-};
 
 export default WorkOrderList;

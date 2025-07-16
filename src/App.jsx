@@ -7,7 +7,10 @@ import Header from "@/components/organisms/Header";
 import Sidebar from "@/components/organisms/Sidebar";
 import Dashboard from "@/components/pages/Dashboard";
 import WorkOrders from "@/components/pages/WorkOrders";
+import WorkOrderDetail from "@/components/pages/WorkOrderDetail";
 import Assets from "@/components/pages/Assets";
+import AssetDetail from "@/components/pages/AssetDetail";
+import SpaceDetail from "@/components/pages/SpaceDetail";
 import FloorPlans from "@/components/pages/FloorPlans";
 import Reports from "@/components/pages/Reports";
 import NotificationSettings from "@/components/pages/NotificationSettings";
@@ -153,10 +156,13 @@ function App() {
             
             <main className="flex-1 overflow-y-auto">
               <div className="p-6">
-                <Routes>
+<Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/work-orders" element={<WorkOrders />} />
+                  <Route path="/work-orders/:id" element={<WorkOrderDetail />} />
                   <Route path="/assets" element={<Assets />} />
+                  <Route path="/assets/:id" element={<AssetDetail />} />
+                  <Route path="/spaces/:id" element={<SpaceDetail />} />
                   <Route path="/floor-plans" element={<FloorPlans />} />
                   <Route path="/reports" element={<Reports />} />
                   <Route path="/notifications" element={<NotificationSettings />} />

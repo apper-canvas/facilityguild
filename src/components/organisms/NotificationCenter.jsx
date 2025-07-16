@@ -1,17 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useNotifications } from "@/components/organisms/NotificationContext";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import { toast } from "react-toastify";
-
 const NotificationCenter = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
   const { notifications, markAsRead, markAllAsRead, deleteNotification } = useNotifications();
 
   const unreadCount = notifications.filter(n => !n.IsRead).length;
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -48,6 +48,42 @@ const NotificationCenter = () => {
     } catch (error) {
       toast.error("Failed to delete notification");
     }
+};
+
+  const handleNotificationClick = async (notification) => {
+    try {
+      // Mark as read if not already read
+      if (!notification.IsRead) {
+        await markAsRead(notification.Id);
+      }
+      
+      // Navigate to the related record
+      const { RelatedType, RelatedId } = notification;
+      
+      if (RelatedType && RelatedId) {
+        let route;
+        switch (RelatedType) {
+          case "work_order":
+            route = `/work-orders/${RelatedId}`;
+            break;
+          case "asset":
+            route = `/assets/${RelatedId}`;
+            break;
+          case "space":
+            route = `/spaces/${RelatedId}`;
+            break;
+          default:
+            console.warn(`Unknown notification type: ${RelatedType}`);
+            return;
+        }
+        
+        setIsOpen(false);
+        navigate(route);
+      }
+    } catch (error) {
+      console.error("Error handling notification click:", error);
+      toast.error("Failed to open notification");
+    }
   };
 
   const getNotificationIcon = (type) => {
@@ -82,7 +118,6 @@ const NotificationCenter = () => {
         return "text-slate-500";
     }
   };
-
   return (
     <div className="relative" ref={dropdownRef}>
       <Button
@@ -133,12 +168,13 @@ const NotificationCenter = () => {
                   <p className="text-slate-500">No notifications yet</p>
                 </div>
               ) : (
-                notifications.map((notification) => (
+notifications.map((notification) => (
                   <div
                     key={notification.Id}
-                    className={`p-4 border-b border-slate-100 hover:bg-slate-50 transition-colors ${
+                    className={`p-4 border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer ${
                       !notification.IsRead ? "bg-blue-50" : ""
                     }`}
+                    onClick={() => handleNotificationClick(notification)}
                   >
                     <div className="flex items-start space-x-3">
                       <div className={`p-2 rounded-full ${!notification.IsRead ? "bg-blue-100" : "bg-slate-100"}`}>
@@ -167,7 +203,10 @@ const NotificationCenter = () => {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                onClick={() => handleMarkAsRead(notification.Id)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleMarkAsRead(notification.Id);
+                                }}
                                 className="p-1 h-6 w-6"
                               >
                                 <ApperIcon name="Check" className="h-3 w-3" />
@@ -176,7 +215,10 @@ const NotificationCenter = () => {
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => handleDelete(notification.Id)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDelete(notification.Id);
+                              }}
                               className="p-1 h-6 w-6 text-red-500 hover:text-red-600"
                             >
                               <ApperIcon name="X" className="h-3 w-3" />

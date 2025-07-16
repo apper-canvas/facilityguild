@@ -101,12 +101,12 @@ const NotificationCenter = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+<motion.div
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-elevated border border-slate-200 z-50"
+            className="absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-lg shadow-elevated border border-slate-200 z-50"
           >
             <div className="p-4 border-b border-slate-200">
               <div className="flex items-center justify-between">

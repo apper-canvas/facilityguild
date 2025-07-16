@@ -1,0 +1,112 @@
+[
+  {
+    "Id": 1,
+    "Title": "New Work Order Created",
+    "Message": "Work order #WO-2024-001 has been created for HVAC maintenance in Building A",
+    "Type": "work_order",
+    "Priority": "medium",
+    "IsRead": false,
+    "CreatedAt": "2024-01-15 10:30:00",
+    "RelatedId": 1,
+    "RelatedType": "work_order"
+  },
+  {
+    "Id": 2,
+    "Title": "Asset Maintenance Due",
+    "Message": "Elevator #ELV-001 is scheduled for routine maintenance tomorrow",
+    "Type": "maintenance",
+    "Priority": "high",
+    "IsRead": false,
+    "CreatedAt": "2024-01-15 09:15:00",
+    "RelatedId": 5,
+    "RelatedType": "asset"
+  },
+  {
+    "Id": 3,
+    "Title": "Floor Plan Updated",
+    "Message": "Floor plan for Building A - Floor 3 has been updated with new office layout",
+    "Type": "asset",
+    "Priority": "low",
+    "IsRead": true,
+    "CreatedAt": "2024-01-15 08:45:00",
+    "RelatedId": 1,
+    "RelatedType": "floor_plan"
+  },
+  {
+    "Id": 4,
+    "Title": "Critical Alert",
+    "Message": "Fire alarm system in Building B requires immediate attention",
+    "Type": "alert",
+    "Priority": "high",
+    "IsRead": false,
+    "CreatedAt": "2024-01-15 07:20:00",
+    "RelatedId": 12,
+    "RelatedType": "asset"
+  },
+  {
+    "Id": 5,
+    "Title": "Work Order Completed",
+    "Message": "Work order #WO-2024-002 for lighting repair has been completed",
+    "Type": "work_order",
+    "Priority": "low",
+    "IsRead": true,
+    "CreatedAt": "2024-01-14 16:30:00",
+    "RelatedId": 2,
+    "RelatedType": "work_order"
+  },
+  {
+    "Id": 6,
+    "Title": "Asset Warranty Expiring",
+    "Message": "Warranty for Generator #GEN-003 expires in 30 days",
+    "Type": "asset",
+    "Priority": "medium",
+    "IsRead": false,
+    "CreatedAt": "2024-01-14 14:15:00",
+    "RelatedId": 8,
+    "RelatedType": "asset"
+  },
+  {
+    "Id": 7,
+    "Title": "Preventive Maintenance Scheduled",
+    "Message": "Monthly HVAC inspection scheduled for Building C on January 20th",
+    "Type": "maintenance",
+    "Priority": "medium",
+    "IsRead": true,
+    "CreatedAt": "2024-01-14 11:00:00",
+    "RelatedId": 3,
+    "RelatedType": "asset"
+  },
+  {
+    "Id": 8,
+    "Title": "Emergency Work Order",
+    "Message": "Emergency plumbing issue reported in Building A - Floor 2",
+    "Type": "work_order",
+    "Priority": "high",
+    "IsRead": false,
+    "CreatedAt": "2024-01-14 09:45:00",
+    "RelatedId": 15,
+    "RelatedType": "work_order"
+  },
+  {
+    "Id": 9,
+    "Title": "Asset Inspection Overdue",
+    "Message": "Monthly inspection for Security System #SEC-001 is 5 days overdue",
+    "Type": "maintenance",
+    "Priority": "high",
+    "IsRead": false,
+    "CreatedAt": "2024-01-13 15:30:00",
+    "RelatedId": 11,
+    "RelatedType": "asset"
+  },
+  {
+    "Id": 10,
+    "Title": "System Update",
+    "Message": "Facility management system will undergo maintenance tonight from 11 PM to 2 AM",
+    "Type": "alert",
+    "Priority": "medium",
+    "IsRead": true,
+    "CreatedAt": "2024-01-13 13:20:00",
+    "RelatedId": null,
+    "RelatedType": "system"
+  }
+]
